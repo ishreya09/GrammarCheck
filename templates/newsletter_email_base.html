@@ -1,0 +1,47 @@
+{% load i18n %}{% autoescape off %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Grammar Check</title>
+    <link rel="stylesheet" href="{% static 'fontawesome-5.5/css/all.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'slick/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css'%}">
+    <link rel="stylesheet" href="{% static 'magnific-popup/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/tooplate-infinite-loop.css'%}" />
+
+    
+  </head>
+<section id="infinite" class="text-white tm-font-big tm-parallax">
+    
+    <div class="text-center tm-hero-text-container">
+      <div class="tm-hero-text-container-inner">
+          <h2 class="tm-hero-title">Grammar Check</h2>
+          <p> Great Writing,Simplified <br>
+          Compose bold, clear, mistake-free writing with Grammar Check </p>
+      </div>        
+    </div>
+
+    <div class="tm-next tm-intro-next">
+      <a href="#" class="text-center tm-down-arrow-link">
+        <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+      </a>
+    </div>      
+  </section>
+  {% block content %}
+  {% endblock %}
+
+  
+      <script src="{% static 'js/jquery-1.9.1.min.js'%}"></script>     
+    <script src="{% static 'slick/slick.min.js'%}"></script>
+    <script src="{% static 'magnific-popup/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/easing.min.js'%}"></script>
+    <script src="{% static 'js/jquery.singlePageNav.min.js'%}"></script>     
+    <script src="{% static 'js/bootstrap.min.js'%}"></script> 
+    <script>
+{% endautoescape %}

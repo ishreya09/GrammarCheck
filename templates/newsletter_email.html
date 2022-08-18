@@ -1,0 +1,23 @@
+{% extends 'newsletter_email_base.html' %}
+{% load static %}
+
+{% block content %}
+<p>Hello {{subscriber.name }}</p>
+<h1> {{newsletter.subject}}</h1>
+<h3> {{newsletter.subheading}} </h3>
+{% if newsletter.img %}
+    <img src= "http://{{domain}}/media/{{newsletter.img}}"> 
+{% endif %}
+<p>{{newsletter.post|safe}} </p>
+
+<div class="text-center col-12">
+    <p> Thanks for using our site! </p>
+   <p> To Unsubscribe, Click below.<br>
+ Make sure you are logged in to your account to unsubscribe.</p><br>
+http://{{domain}}{% url 'unsubscribe' uidb64=uid token=token %}
+<p> Email Sent from Grammar Check | Copyright <br> Address : India  </p>
+   The {{ site_name }} team
+   <br>
+
+
+{% endblock %}

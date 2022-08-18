@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Grammar Check</title>
+    <link rel="stylesheet" href="{% static 'fontawesome-5.5/css/all.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'slick/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css'%}">
+    <link rel="stylesheet" href="{% static 'magnific-popup/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/tooplate-infinite-loop.css'%}" />
+<!--
+Tooplate 2117 Infinite Loop
+https://www.tooplate.com/view/2117-infinite-loop
+-->
+
+  </head>
+  <body>    
+    <!-- Hero section -->
+    <section id="infinite" class="text-white tm-font-big tm-parallax">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+        <div class="container">   
+          <div class="tm-next">
+              <a href="#infinite" class="navbar-brand">Grammar Check</a>
+          </div>             
+            
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#infinite">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#contact">Contact</a>
+              </li>                    
+            </ul>
+          </div>        
+        </div>
+      </nav>
+      
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            <h2 class="tm-hero-title">Grammar Check</h2>
+            <p> Great Writing,Simplified <br>
+			Compose bold, clear, mistake-free writing with Grammar Check </p>
+        </div>        
+      </div>
+
+      <div class="tm-next tm-intro-next">
+        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+        </a>
+      </div>      
+    </section>
+	
+	<div class="text-center col-12" style="background-color:#005876;">
+		<div class="tm-continue">
+      {% if user.is_authenticated %}
+        <a href="#" class="tm-intro-text tm-btn-primary">Hello {{user.first_name}} {{user.last_name}}</a>
+        <a href="/" class="tm-intro-text tm-btn-primary">HOME</a>
+        
+      {% else %}
+      <a href="/" class="tm-intro-text tm-btn-primary">HOME</a>
+      {% endif %}  
+        </div>
+	  </div>
+	  <p><br></p>
+	
+	<section id="text" class="tm-section-pad-top">
+    
+      <div >
+        
+        <div class="row">
+            
+            <div class="text-center col-12">
+                
+        {% block content %}
+			  
+			  {% endblock %}
+            </div>
+            
+            
+            </div>
+            
+            
+        </div>
+		<!-- row ending -->	
+
+    </section>
+
+    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+    
+        <div class="container tm-container-contact">
+          
+          <div class="row">
+              
+              <div class="text-center col-12">
+                  <h2 class="tm-section-title mb-4">Contact Us</h2>
+                
+                    <br>
+                    <br>
+                    <br>
+              </div>
+              
+              <h4 class="text-center col-12" style="background: rgb(9, 27, 54); opacity : 50%; "> Thank you {{contact.name}}, for contacting us.<br> We will try to contact you as soon as we can <br> through the gmail provided in the form. </h4>
+              
+              </div>
+              
+              
+        </div><!-- row ending -->
+      </section>
+      
+  <footer>
+  <style>	
+  footer {
+      text-align: center;
+      padding: 3px;
+      background-color: #005876;
+      color: white;
+      }
+  </style>
+    <p>Author : Grammar Check<br>
+    <a href="mailto: name@company.com">admin@grammarcheck.com</a></p>
+  </footer>

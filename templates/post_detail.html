@@ -1,0 +1,377 @@
+{% extends 'baseblog.html' %}
+{% load static %}
+{% block metatags %}
+<title>{{ blogger.title }}</title>
+
+<meta property="og:title" content="{{ blogger.title }}">
+<meta property = "og:url" content="{{ blogger.get_absolute_url }}">
+<meta property="og:site_name" content="Grammar Check">
+<meta property="og:description" content="{{ blogger.metades }}">
+<meta property="og:type" content="article">
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    #container img {
+    border-radius: 29px;
+    width: 100%;
+    height: 360px;
+    opacity: 0.7;
+    align-content: center;
+    }
+    #container img {
+    opacity: 1.0; }
+    a {text-align: center; text-decoration: none;}
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Post",
+      "headline": "{{ blogger.title }}",
+      "description": "{{ blogger.metades }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ blogger.get_absolute_url }}"
+    },
+      "author": {
+        "@type": "Person",
+        "name": "{{ blogger.author}} "
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Grammar Check",
+      },
+      "datePublished": "{{ blogger.published_date }}",
+      "dateModified": "{{ blogger.published_date }}",
+      "mentions": "{{ blogger.source }}"
+    }
+    </script>
+
+<section id="blog" class="tm-section-pad-top tm-parallax-2">      
+    
+    <!-- The overlay -->
+<div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a href="#infinite">Home</a>
+      <a href ="/blog" >BLOG </a>
+      <a href="#contact">Contact</a>
+    </div>
+  
+  </div>
+  
+  <!-- Use any element to open/show the overlay navigation menu -->
+      
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+  <!-- Page content -->
+<div class="main">
+    <div class="container tm-testimonials-content">
+      <div class="row">
+        <div class="col-lg-12 tm-content-box">
+          <strong><h2 style="color: rgb(49, 43, 43)" class="text-center col-12" >BLOG</h2></strong>
+          <p class="mx-auto tm-section-desc text-center">
+              Welcome to Grammar Check's Blog
+            </p>
+            <br><br>
+            <div class="text-center col-12">
+                <span onclick="openNav()" class="tm-intro-text tm-btn-primary">MENU</span>
+            </div>
+  
+                </div>
+                <div class="container">
+                    <div class="row"> 
+                  <div class="text-center col-12">
+                    <section id="{{blogger.slug}}" class="tm-section-pad-top tm-parallax-2">
+                          <strong><h1 class="card-title">{{ blogger.title }} </h1></strong>
+                          <p class=" text-muted">{{ blogger.author }} | {{ blogger.published_date }}</p><br> 
+
+                          {% if blogger.subheading1 %}
+                          <h3 class="tm-text-primary mb-4"> {{blogger.subheading1}} </h3> 
+                        {% endif %}
+                        {% if blogger.img1 %}
+                        <img src="{{blogger.img1.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                        <figcaption>{{blogger.caption1}}</figcaption> <br>
+                        {% endif %}
+                        {% if blogger.post1 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post1|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading2 %}
+                            <h3 class="tm-text-primary mb-4"> {{blogger.subheading2}} </h3>
+                          {% endif %}
+                          {% if blogger.img2 %}
+                            <img src="{{blogger.img2.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                            <figcaption>{{blogger.caption2}}</figcaption><br>
+                          {% endif %}
+                        {% if blogger.post2 %}
+                            <p class="mb-4 tm-intro-text">{{blogger.post2|safe}}</p>
+                        {% endif %}
+
+                            {% if blogger.subheading3  %}
+                              <h3 class="tm-text-primary mb-4"> {{blogger.subheading3}} </h3>
+                            {% endif %}
+                        {% if blogger.img3 %}
+                          <img src="{{blogger.img3.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption3}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post3 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post3|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading4 %}
+                            <h3 class="tm-text-primary mb-4"> {{blogger.subheading4}} </h3>
+                          {% endif %}
+                        {% if blogger.img4 %}
+                          <img src="{{blogger.img4.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption4}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post4 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post4|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading5 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading5}} </h3>
+                          {% endif %}
+                        {% if blogger.img5 %}
+                          <img src="{{blogger.img5.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption5}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post5 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post5|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading6 %}
+                            <h3 class="tm-text-primary mb-4"> {{blogger.subheading6}} </h3>
+                          {% endif %}
+                        {% if blogger.img6 %}
+                          <img src="{{blogger.img6.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption6}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post6 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post6|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading7 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading7}} </h3>
+                          {% endif %}
+                          
+                        {% if blogger.img7 %}
+                          <img src="{{blogger.img7.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption7}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post7 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post7|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading8 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading8}} </h3>
+                          {% endif %}
+                        {% if blogger.img8 %}
+                          <img src="{{blogger.img8.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption8}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post8 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post8|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading9 %}
+
+                            <h3 class="tm-text-primary mb-4"> {{blogger.subheading9}} </h3>
+                          {% endif %}
+                        {% if blogger.img9 %}
+                          <img src="{{blogger.img9.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption9}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post9 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post9|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading10 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading10}} </h3>
+                          {% endif %}
+                        {% if blogger.img10 %}
+                          <img src="{{blogger.img10.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption10}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post10 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post10|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading11 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading11}} </h3>
+                          {% endif %}
+                        {% if blogger.img11 %}
+                          <img src="{{blogger.img11.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption11}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post11 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post11|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading12 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading12}} </h3>
+                          {% endif %}
+                        {% if blogger.img12 %}
+                         <img src="{{blogger.img12.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                         <figcaption>{{blogger.caption12}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post12 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post12|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading13 %}
+                            <h3 class="tm-text-primary mb-4"> {{blogger.subheading13}} </h3>
+                          {% endif %}
+                        {% if blogger.img13 %}
+                          <img src="{{blogger.img13.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption13}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post13 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post13|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading14 %}
+                            <h3 class="tm-text-primary mb-4"> {{blogger.subheading14}} </h3>
+                          {% endif %}
+                        {% if blogger.img14 %}
+                          <img src="{{blogger.img14.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption14}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post14 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post14|safe}}</p>
+                        {% endif %}
+
+                          {% if blogger.subheading15 %}
+                           <h3 class="tm-text-primary mb-4"> {{blogger.subheading15}} </h3>
+                          {% endif %}
+                        {% if blogger.img15 %}
+                          <img src="{{blogger.img15.url}}" alt="Image" class="img-fluid mx-auto" style="width: auto;height:300px;">
+                          <figcaption>{{blogger.caption15}}</figcaption><br>
+                        {% endif %}
+                        {% if blogger.post15 %}
+                          <p class="mb-4 tm-intro-text">{{blogger.post15|safe}}</p>
+                        {% endif %}
+            </div>
+          </section>
+              
+    
+
+         
+                        </div>
+                         </div>
+                         </div>
+		 
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="pagination">
+          {% for blogger in object_list %}
+           <a href="{{ blogger.get_absolute_url }}" class="btn btn-outline-primary">{{blogger.title}}</a></span>
+          {% endfor %}
+        </div>
+        </section>
+
+
+
+<style>
+  /* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+
+   /* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+</style>
+         
+
+		
+<script>
+    /* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+  
+  /* Close when someone clicks on the "x" symbol inside the overlay */
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+
+
+
+
+{% endblock %}

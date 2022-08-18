@@ -1,0 +1,128 @@
+{% extends 'baseaccount.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+
+    <div class="row tm-content-box"><!-- first row -->
+        <div class="col-lg-12 col-xl-12">
+            <div class="tm-intro-text-container">
+                <h2 class="tm-text-primary mb-4 tm-section-title">PROFILE</h2>
+                <p class="mb-4 tm-intro-text">
+                 Welcome to Grammar Check, {{user.first_name}} {{user.last_name}}</a>.</p>
+                 
+                
+            </div>
+        </div>
+    </div><!-- first row -->
+
+    <div class="row tm-content-box"><!-- second row -->
+        <div class="col-lg-1">
+           
+        </div>
+        <div class="col-lg-5">
+            <div class="tm-intro-text-container">
+                <h2 class="tm-text-primary mb-4">Details</h2>
+                
+                
+                    <ul>
+                        
+                          
+                       
+                        {% if user.profile.Profile_pic %}
+                            <li> <img src="{{ user.profile.Profile_pic.url }}" style="height: 100px; width: auto;" ></li>
+                        {% else %}
+                            <li> <img src="{% static 'img/default.png' %}" style="height: 100px; width: auto;opacity: 50%" ></li>
+                        {% endif %}
+                        <b><li>Name : {{user.get_full_name}}</li>
+                        <li>Username: {{ user.username }}</li>
+                      <li>Mobile Number : {{user.profile.mobilenumber}}</li>
+                      <li>Country: {{ user.profile.Country }}</li>
+                      <li>Date of Birth: {{ user.profile.Date_of_birth }}</li>
+                      <li>Newsletter: {{ user.profile.newsletter }}</li></b>
+                    </ul> 
+            </div>
+        </div>
+        
+        <div class="col-lg-1">
+            
+        </div>
+        <div class="col-lg-5">
+            <div class="tm-intro-text-container">
+                <h2 class="tm-text-primary mb-4"></h2>
+                <p class="mb-4 tm-intro-text">
+                    <b><li>Bio: {{ user.profile.bio }}</li></b>
+                </p>
+                <div class="tm-continue">
+                    <a href="updateprofile" class="tm-intro-text tm-btn-primary">UPDATE PROFILE DETAILS</a><br><br>
+                    <a href="change-password" class="tm-intro-text tm-btn-primary">Change Password</a><br> <br>
+                    {% if user.is_superuser %}
+                    <a href="/newsletter/createnewsletter" class="tm-intro-text tm-btn-primary">Create Newsletter</a><br><br>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </div>
+
+    </div><!-- second row -->
+
+{% endif %}
+
+
+{% if messages %}
+{% for message in messages %}
+    {% if message.tags == 'success'%}
+        <div class="alert" style="background-color: green; color: white;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+        </div>
+    {% elif message.tags == 'info'%}
+        <div class="alert" style="background-color: rgb(209, 209, 95); color: black;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+        </div>
+    {% elif message.tags == 'warning'%}
+        <div class="alert" style="background-color: rgb(133, 28, 28); color: white;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+        </div>
+    {% elif message.tags == 'error'%}
+        <div class="alert" style="background-color: red; color: white;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+        </div>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+
+<style>
+.alert {
+opacity: 1;
+transition: opacity 0.6s; /* 600ms to fade out */
+}
+</style>
+
+<script>
+// Get all elements with class="closebtn"
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+// Loop through all close buttons
+for (i = 0; i < close.length; i++) {
+// When someone clicks on a close button
+close[i].onclick = function(){
+
+// Get the parent of <span class="closebtn"> (<div class="alert">)
+var div = this.parentElement;
+
+// Set the opacity of div to 0 (transparent)
+div.style.opacity = "0";
+
+// Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+setTimeout(function(){ div.style.display = "none"; }, 600);
+}
+}
+</script>
+
+{% endblock %}

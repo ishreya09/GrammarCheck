@@ -1,0 +1,96 @@
+{% extends 'baseaccount.html' %}
+{% block content %}
+<h2 class="tm-section-title mb-4"> Grammar Check Text Editor</h2>
+<p class="mb-5">
+  Thank you for your patience. We hope that you use it again next time.
+  </p>
+  <br>
+</div>
+
+	<div class="text-center col-12">
+
+	<h4> The Corrected Text is: </h4> 
+	<br>
+	<br>
+	<p style="text-align: middle" style="width:1000px" >
+		{{correct_text}} 
+		
+		
+	
+	<br>
+	<br>
+	</p>
+	
+		{% if messages %}
+		<!-- Trigger/Open The Modal -->
+		<button id="myBtn"  style="background-color:#c4f0ff;">CHECK ERRORS</button>
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content" style="background-color:#c4f0ff;">
+		<span class="close">&times;</span>
+		<p>
+		<div>
+		{% if messages %}
+			{% for message in messages %}
+        		<p style="text-align: middle" style="width:1000px" > {{message}} </p>>
+			{% endfor %}
+		{% endif %}
+		</div>>
+		</p>
+		</div>
+		{% endif %}
+
+</div>
+<!--	<div>
+        {% for message in messages %}
+        <p style="text-align: middle" style="width:1000px" > {{message}} </p>>
+        {% endfor %}
+    </div>>
+			 
+
+	{% if messages %}
+		{% for message in messages %}
+			{% if message.tags == 'success'%}
+				<script>M.toast({html: message}, classes: 'rounded', displayLength:2000);</script>
+			{% elif message.tags == 'info'%}
+				<script>M.toast({html: message}, classes: 'rounded', displayLength:2000});</script>
+			{% elif message.tags == 'warning'%}
+				<script>M.toast({html: message}, classes: 'rounded', displayLength:10000});</script>
+			{% elif message.tags == 'error'%}
+				<script>M.toast({html: message}, classes: 'rounded', displayLength:10000});</script>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	//-->
+<script>
+	// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+{% endblock %}
