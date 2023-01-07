@@ -11,8 +11,8 @@ urlpatterns = [
     path('savelogin', views.login , name= "savelogin"),
     path('logout', views.logout, name="logout"),
     path('profile', views.profile, name= 'profile'),
-    path('updateprofile', views.updateprofile , name= 'updateprofile'),
     path('saveprofile', views.updateprofile , name= "savefrofile"),
+    path('updateprofile', views.updateprofile , name= 'updateprofile'),
    # Change Password
     path(
         'change-password/',
